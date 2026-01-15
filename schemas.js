@@ -260,7 +260,7 @@ export const SCHEMAS = {
     ]
   },
 
-=
+
 
   "special:beta": {
     title: "Beta Function",
