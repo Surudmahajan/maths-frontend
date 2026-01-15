@@ -300,7 +300,7 @@ export const SCHEMAS = {
     ]
   },
 
-  =
+
 
   "integrals:double-cartesian": {
     title: "Double Integral (Cartesian)",
