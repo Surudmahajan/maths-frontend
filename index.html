@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Engineering Mathematics AI Engine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <div class="header">
+      <h1>Engineering Mathematics AI Engine</h1>
+      <p>Algebra • Calculus • Differential Equations • Numerical Methods</p>
+    </div>
+
+    <textarea
+      id="userInput"
+      placeholder="Example: find the rank of the matrix [[1,2],[3,4]]"
+    ></textarea>
+
+    <button onclick="send()">Run</button>
+
+    <div class="status" id="status"></div>
+
+    <div id="form"></div>
+
+    <pre id="output"></pre>
+
+  </div>
+
+  <script type="module">
+    import { sendMessage } from "./chat.js?v=1";
+    window.send = sendMessage;
+  </script>
+
+</body>
+</html>
