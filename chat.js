@@ -1,7 +1,7 @@
 import { SCHEMAS } from "./schemas.js";
 
 const AI_PROXY_BASE = "https://surudmahajan12-mathproxy.hf.space";
-const BACKEND_BASE = "https://surudmahajan12-math.hf.space";
+const BACKEND_BASE = "https://surudmahajan12-mathback.hf.space";
 
 export async function sendMessage() {
   const inputEl = document.getElementById("userInput");
