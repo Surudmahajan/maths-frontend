@@ -28,11 +28,49 @@
     <pre id="output"></pre>
 
   </div>
+  <!-- VISUALS PANEL -->
+<div class="visuals-panel" id="visuals-panel">
+
+  <div class="visuals-toolbar">
+    <span>Visuals</span>
+    <div class="visuals-actions">
+      <button onclick="toggleVisuals()">Hide</button>
+      <button onclick="fullscreenVisuals()">Fullscreen</button>
+    </div>
+  </div>
+
+  <iframe
+    id="visuals-iframe"
+    src="https://surudmahajan.github.io/test/"
+    loading="lazy"
+  ></iframe>
+
+</div>
+
 
   <script type="module">
     import { sendMessage } from "./chat.js?v=1";
     window.send = sendMessage;
   </script>
+  <script>
+let visualsVisible = true;
+
+function toggleVisuals() {
+  const panel = document.getElementById("visuals-panel");
+  const btn = event.target;
+
+  visualsVisible = !visualsVisible;
+  panel.classList.toggle("hidden", !visualsVisible);
+  btn.textContent = visualsVisible ? "Hide" : "Show";
+}
+
+function fullscreenVisuals() {
+  const panel = document.getElementById("visuals-panel");
+  panel.classList.toggle("fullscreen");
+  panel.classList.remove("hidden");
+}
+</script>
+
 
 </body>
 </html>
