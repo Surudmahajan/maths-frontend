@@ -194,3 +194,10 @@ button:active {
     font-size: 26px;
   }
 }
+/* VISUALS PANEL CSS */
+.visuals-panel { ... }
+.visuals-panel.hidden { ... }
+.visuals-toolbar { ... }
+#visuals-iframe { ... }
+.visuals-panel.fullscreen { ... }
+
