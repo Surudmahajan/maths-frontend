@@ -44,6 +44,20 @@ export async function sendMessage() {
         intent.method,
         payload
       );
+      const iframe = document.getElementById("visuals-iframe");
+
+if (iframe && iframe.contentWindow) {
+  iframe.contentWindow.postMessage(
+    {
+      type: "ENGINE_RESULT",
+      payload: {
+        domain: "math",
+        data: result
+      }
+    },
+    "*"
+  );
+}
 
       statusEl.textContent = "Explaining solution…";
 
