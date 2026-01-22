@@ -2,6 +2,7 @@ import { SCHEMAS } from "./schemas.js";
 
 const AI_PROXY_BASE = "https://surudmahajan12-mathproxy.hf.space";
 const BACKEND_BASE = "https://surudmahajan12-mathback.hf.space";
+const VISUALS_ORIGIN = "https://ovisual.netlify.app";
 
 export async function sendMessage() {
   const inputEl = document.getElementById("userInput");
@@ -55,7 +56,7 @@ if (iframe && iframe.contentWindow) {
         data: result
       }
     },
-    "*"
+    VISUALS_ORIGIN
   );
 }
 
