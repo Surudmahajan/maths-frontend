@@ -2,87 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Engineering Mathematics AI Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="app">
+  <div class="grid-overlay"></div>
 
+  <div class="app">
     <div class="header">
+      <div class="math-icon">∫ d𝑥</div>
       <h1>Engineering Mathematics AI Engine</h1>
       <p>Algebra • Calculus • Differential Equations • Numerical Methods</p>
     </div>
 
-    <textarea
-      id="userInput"
-      placeholder="Example: find the rank of the matrix [[1,2],[3,4]]"
-    ></textarea>
-
-    <button onclick="send()">Run</button>
-
-    <div class="status" id="status"></div>
-
-    <div id="form"></div>
-
-    <pre id="output"></pre>
-<div class="app">
-
-  <!-- header, input, form, output -->
-  <pre id="output"></pre>
-
-  <!-- VISUALS PANEL -->
-  <div class="visuals-panel" id="visuals-panel">
-
-    <div class="visuals-toolbar">
-      <span>Visuals</span>
-      <div class="visuals-actions">
-        <button onclick="toggleVisuals()">Hide</button>
-        <button onclick="fullscreenVisuals()">Fullscreen</button>
+    <div class="input-container">
+      <textarea
+        id="userInput"
+        placeholder="Example: find the rank of the matrix [[1,2],[3,4]]"
+      ></textarea>
+      
+      <div class="input-actions">
+        <div class="status" id="status">System Ready</div>
+        <button class="primary-btn" onclick="send()">
+          <span>Execute</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
 
-    <iframe
-      id="visuals-iframe"
-      src="https://ovisual.netlify.app/"
-      loading="lazy"
-    ></iframe>
+    <div id="form"></div>
 
+    <div class="terminal-wrapper">
+      <pre id="output"></pre>
+    </div>
+
+    <div class="visuals-panel" id="visuals-panel">
+      <div class="visuals-toolbar">
+        <div class="toolbar-label">
+          <span class="pulse-dot"></span>
+          Mathematical Visualization
+        </div>
+        <div class="visuals-actions">
+          <button class="nav-btn" onclick="toggleVisuals()">Hide</button>
+          <button class="nav-btn accent" onclick="fullscreenVisuals()">Fullscreen</button>
+        </div>
+      </div>
+
+      <div class="iframe-container">
+        <iframe
+          id="visuals-iframe"
+          src="https://ovisual.netlify.app/"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
   </div>
-
-</div>
-
-
-
-
 
   <script type="module">
     import { sendMessage } from "./chat.js?v=1";
     window.send = sendMessage;
   </script>
-    <script>
-  let visualsVisible = true;
-
-  function toggleVisuals() {
-    const panel = document.getElementById("visuals-panel");
-    const btn = event.target;
-
-    visualsVisible = !visualsVisible;
-    panel.classList.toggle("hidden", !visualsVisible);
-
-    btn.textContent = visualsVisible ? "Hide" : "Show";
-  }
-
-  function fullscreenVisuals() {
-    const panel = document.getElementById("visuals-panel");
-    panel.classList.toggle("fullscreen");
-
-    // Safety: fullscreen should always be visible
-    panel.classList.remove("hidden");
-  }
-</script>
-
   
+  <script>
+    let visualsVisible = true;
 
+    function toggleVisuals() {
+      const panel = document.getElementById("visuals-panel");
+      const btn = event.target;
+      visualsVisible = !visualsVisible;
+      panel.classList.toggle("hidden", !visualsVisible);
+      btn.textContent = visualsVisible ? "Hide" : "Show";
+    }
+
+    function fullscreenVisuals() {
+      const panel = document.getElementById("visuals-panel");
+      panel.classList.toggle("fullscreen");
+      panel.classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>
